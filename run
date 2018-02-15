@@ -17,11 +17,11 @@
 set -e
 
 # shellcheck disable=SC2034
-print_divider() { for divider in $(seq 1 "$1") ; do printf "%s" "$2" ; done ; printf "\n" ; }
+print_divider() { for divider in $(seq 1 "$1") ; do printf "%s" "$2" ; done ; printf "\\n" ; }
 
 if [ "$#" -eq 0 ] ; then
   SEQSTART=1
-  SEQEND=1
+  SEQEND=2
 elif [ "$#" -eq 1 ] && [ "x$1" != "x-h" ] ; then
   SEQSTART="$1"
   SEQEND="$1"
@@ -53,6 +53,6 @@ for i in $(seq "$SEQSTART" "$SEQEND") ; do
     <input java -jar "target/$day-1.0-SNAPSHOT.jar"
 
     print_divider 72 "="
-    printf "\n"
+    printf "\\n"
   )
 done
